@@ -1,10 +1,10 @@
-FROM node:8.11
+FROM node:8.15
 
-COPY tilemill /usr/src/tilemill
+RUN git clone https://github.com/tilemill-project/tilemill.git \
+  && cd tilemill \
+  && npm install
 
-RUN cd /usr/src/tilemill && npm install
-
-ENTRYPOINT cd /usr/src/tilemill && npm start
+ENTRYPOINT cd tilemill && npm start
 
 EXPOSE 20008
 EXPOSE 20009
