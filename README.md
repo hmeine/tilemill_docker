@@ -17,12 +17,12 @@ Building:
     cd tilemill
     docker build -t tilemill .
 
-Running:
+Running (using image from docker hub):
 
     docker run --rm --name tilemill -t \
         --net=host \
 	    -v ~/Documents/MapBox:/root/Documents/MapBox \
-	    tilemill
+	    hansmeine/tilemill
 
 ## OSM-Bright
 
@@ -31,12 +31,12 @@ Building:
     cd osm_bright
     docker build -t osm_bright .
 
-Running:
+Running (using image from docker hub):
 
     docker run --rm --name tilemill -t \
         --net=host \
 	    -v ~/Documents/MapBox:/root/Documents/MapBox\
-        osm_bright
+        hansmeine/osm_bright
 	
 	# this has to be run once, but after tilemill has been started
 	# and has set up the ~/Documents/MapBox directory
