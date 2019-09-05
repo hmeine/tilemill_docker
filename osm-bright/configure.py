@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from os import path, getcwd
+from os import path, getcwd, environ
 from collections import defaultdict
 config = defaultdict(defaultdict)
 
@@ -18,11 +18,12 @@ config["path"] = path.expanduser("~/Documents/MapBox/project")
 
 # PostGIS connection setup
 # Leave empty for Mapnik defaults. The only required parameter is dbname.
-config["postgis"]["host"]     = "localhost"
-config["postgis"]["port"]     = ""
-config["postgis"]["dbname"]   = "gis"
-config["postgis"]["user"]     = "docker"
-config["postgis"]["password"] = "docker"
+config["postgis"]["host"]     = environ.get("PGHOST", "")
+config["postgis"]["port"]     = environ.get("PGPORT", "")
+config["postgis"]["dbname"]   = environ.get("PGDATABASE", "")
+config["postgis"]["user"]     = environ.get("PGUSER", "")
+# for security reasons, ~/.pgpass may be preferred:
+config["postgis"]["password"] = environ.get("PGPASSWORD", "")
 
 # Increase performance if you are only rendering a particular area by
 # specifying a bounding box to restrict queries. Format is "XMIN,YMIN,XMAX,YMAX"
