@@ -1,9 +1,8 @@
-version: "3.3"
+version: "3"
 
 services:
   postgis:
     image: kartoza/postgis
-#    privileged: true
     volumes:
       - pg_data:/var/lib/postgresql
     ports:
