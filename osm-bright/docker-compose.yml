@@ -12,7 +12,14 @@ services:
     image: hansmeine/osm-bright
     volumes:
       - ~/Documents/MapBox:/root/Documents/MapBox
-    network_mode: host
+    ports:
+      - 20009:20009
+      - 20008:20008
+    environment:
+      - PGHOST=postgis
+      - PGDATABASE=gis
+      - PGUSER=docker
+      - PGPASSWORD=docker
 
 volumes:
   pg_data:
