@@ -2,7 +2,7 @@ Preliminary Dockerfiles for running tilemill and/or osm-bright.
 
 Builds available from dockerhub:
 * https://hub.docker.com/r/hansmeine/tilemill
-* https://hub.docker.com/r/hansmeine/osm_bright
+* https://hub.docker.com/r/hansmeine/osm-bright
 
 Tilemill runs fine, with a very simple setup based on an official node.js image.
 
@@ -28,15 +28,15 @@ Running (using image from docker hub):
 
 Building:
 
-    cd osm_bright
-    docker build -t osm_bright .
+    cd osm-bright
+    docker build -t osm-bright .
 
 Running (using image from docker hub):
 
     docker run --rm --name tilemill -t \
         --net=host \
 	    -v ~/Documents/MapBox:/root/Documents/MapBox\
-        hansmeine/osm_bright
+        hansmeine/osm-bright
 	
 	# this has to be run once, but after tilemill has been started
 	# and has set up the ~/Documents/MapBox directory
