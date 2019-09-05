@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  postgis:
+    image: kartoza/postgis
+#    privileged: true
+    volumes:
+      - pg_data:/var/lib/postgresql
+    ports:
+      - 5432
+
+  tilemill:
+    image: hansmeine/osm-bright
+    volumes:
+      - ~/Documents/MapBox:/root/Documents/MapBox
+    network_mode: host
+
+volumes:
+  pg_data:
