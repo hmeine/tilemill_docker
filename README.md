@@ -41,9 +41,3 @@ Running (using image from docker hub):
 	# this has to be run once, but after tilemill has been started
 	# and has set up the ~/Documents/MapBox directory
     docker exec -it -w /osm-bright tilemill ./make.py
-
-### TODO
-
-* Fix the connection issue (https://github.com/mapbox/osm-bright/issues/132)
-* Fetch postgres connection information from `os.environ`, so that it is configurable from the outside, when starting the container.
-* Write a docker-compose.yml.
