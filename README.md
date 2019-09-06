@@ -1,4 +1,4 @@
-Preliminary Dockerfiles for running tilemill and/or osm-bright.
+An easy to use docker setup for running tilemill and/or osm-bright.
 
 Builds available from dockerhub:
 * https://hub.docker.com/r/hansmeine/tilemill
@@ -6,7 +6,7 @@ Builds available from dockerhub:
 
 Tilemill runs fine, with a very simple setup based on an official node.js image.
 
-The integration of osm-bright is more difficult and includes imposm.
+The integration of osm-bright is more complex and includes imposm.
 I use it together with https://hub.docker.com/r/kartoza/postgis/.
 
 ## Docker-Compose with OSM-Bright
