@@ -20,7 +20,7 @@ Building:
 Running (using image from docker hub):
 
     docker run --rm --name tilemill -t \
-        --net=host \
+        -p 20009:20009 -p 20008:20008 \
 	    -v ~/Documents/MapBox:/root/Documents/MapBox \
 	    hansmeine/tilemill
 
