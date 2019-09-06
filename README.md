@@ -33,9 +33,15 @@ Building:
 
 Running (using image from docker hub):
 
+    docker run --rm --name postgis \
+	    -p 5432:5432 \
+		-v pg_data:/var/lib/postgresql \
+		kartoza/postgis
+
     docker run --rm --name tilemill -t \
-        --net=host \
-	    -v ~/Documents/MapBox:/root/Documents/MapBox\
+        -p 20009:20009 -p 20008:20008 --link postgis \
+	    -v ~/Documents/MapBox:/root/Documents/MapBox \
+		-e PGHOST=postgis -e PGDATABASE=gis -e PGUSER=docker -e PGPASSWORD=docker \
         hansmeine/osm-bright
 	
 	# this has to be run once, but after tilemill has been started
