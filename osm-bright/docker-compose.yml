@@ -6,7 +6,9 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql
     ports:
-      - 5432
+      - 5432:5432
+    environment:
+      - ALLOW_IP_RANGE=0.0.0.0/0
 
   tilemill:
     image: hansmeine/osm-bright
